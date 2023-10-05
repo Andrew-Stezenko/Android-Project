@@ -25,16 +25,28 @@ class MainActivity : ComponentActivity() {
                     Greeting("Android")
                 }
             }
-            //123
+        }
 
-            //111
+        val a2 = Bird("Кеша", 1, "Сірий")
+        val a1 = Dog("Джек", 5, "Вівчарка")
 
-            //12312341
+        val v1 = myOuterFun(4, ::myInnerFun)
+        val v2 = myOuterFun(3) {
 
-
+            return@myOuterFun "12345"
         }
     }
+
+    fun myOuterFun(number: Int, innerFun: (myString: String) -> String): Int {
+        val call = innerFun("123")
+        return number * number
+    }
+
+    fun myInnerFun(myString: String): String {
+        return "321"
+    }
 }
+
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
